@@ -1,1 +1,64 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESP32 Air Quality Monitor</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #101827;
+  color: white;
+  padding: 20px;
+}
+h1 { text-align: center; color: #45e6b0; }
+.status { text-align: center; color: #b8c7d9; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(145px,1fr));
+  gap: 15px;
+  max-width: 850px;
+  margin: 25px auto;
+}
+.card {
+  background: #1d2a3d;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 12px #0005;
+}
+.label { color: #b8c7d9; font-size: 14px; }
+.value { font-size: 27px; margin: 12px 0; }
+.note { color: #9db0c8; font-size: 12px; }
+footer { text-align: center; color: #9db0c8; margin-top: 30px; }
+</style>
+</head>
+<body>
+<h1>Air Quality Monitor</h1>
+<p class="status" id="status">Website created — waiting for sensor data.</p>
+
+<div class="grid">
+  <div class="card">
+    <div class="label">Temperature</div>
+    <div class="value" id="temp">-- °C</div>
+  </div>
+  <div class="card">
+    <div class="label">Humidity</div>
+    <div class="value" id="humidity">-- %</div>
+  </div>
+  <div class="card">
+    <div class="label">MQ-2 Gas / Smoke</div>
+    <div class="value" id="mq2">--</div>
+    <div class="note">Raw sensor reading</div>
+  </div>
+  <div class="card">
+    <div class="label">MQ-7 CO Sensor</div>
+    <div class="value" id="mq7">--</div>
+    <div class="note">Raw sensor reading</div>
+  </div>
+</div>
+
+<footer>ESP32 IoT Project · Live data will appear after cloud connection</footer>
+</body>
+</html>
